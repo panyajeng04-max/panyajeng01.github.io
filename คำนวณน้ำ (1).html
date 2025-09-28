@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>โปรแกรมคำนวณปริมาณน้ำที่ควรดื่ม</title>
+  <style>
+    body {
+      font-family: "Prompt", sans-serif;
+      background: linear-gradient(135deg, #dff9fb, #c7ecee);
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #0984e3;
+    }
+    input, button {
+      font-size: 18px;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: 1px solid #74b9ff;
+    }
+    button {
+      background-color: #0984e3;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #74b9ff;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #2d3436;
+    }
+  </style>
+</head>
+<body>
+  <h1>💧 โปรแกรมคำนวณปริมาณน้ำที่ควรดื่มต่อวัน</h1>
+  <p>ใส่น้ำหนักตัว (กิโลกรัม):</p>
+  <input type="number" id="weight" placeholder="เช่น 60">
+  <button onclick="calculateWater()">คำนวณ</button>
+  <div id="result"></div>
+
+  <script>
+    function calculateWater() {
+      const weight = document.getElementById("weight").value;
+      if (weight > 0) {
+        const minWater = weight * 30; // ml
+        const maxWater = weight * 35; // ml
+        document.getElementById("result").innerHTML = 
+          `คุณควรดื่มน้ำประมาณ <b>${minWater/1000} – ${maxWater/1000} ลิตร</b> ต่อวัน 💧`;
+      } else {
+        document.getElementById("result").innerHTML = "กรุณากรอกน้ำหนักที่ถูกต้อง";
+      }
+    }
+  </script>
+</body>
+</html>
